@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bgpf0o6saq6qg"]
+
+[ext_resource type="Script" uid="uid://lpe6nby5uheu" path="res://relics/(9)goryeoceladon.gd" id="1_qwwsk"]
+[ext_resource type="Texture2D" uid="uid://uam32ac2j3bt" path="res://relics/(9)GoryeoCeladon.png" id="2_okagm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c1fdp"]
+bounce = 0.05
+
+[node name="GoryeoCeladon" type="RigidBody2D" unique_id=695525910 groups=["GoryeoCeladon"]]
+physics_material_override = SubResource("PhysicsMaterial_c1fdp")
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 0.5
+angular_damp = 1.5
+script = ExtResource("1_qwwsk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=514720685]
+position = Vector2(5.9604645e-08, 1.000001)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_okagm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1998741035]
+position = Vector2(5.9604645e-08, 1.0118833)
+scale = Vector2(0.235, 0.23709527)
+polygon = PackedVector2Array(-19, -369.1, -96.29999, -361, -119.100006, -355, -137.1, -345, -138.37947, -338.8564, -136.17021, -333.24954, -127.65958, -324.81412, -119.14893, -316.3787, -106.38298, -303.72552, -97.87234, -286.85468, -93.61702, -257.3307, -93.61702, -248.89526, -98, -239.70001, -110, -224.70001, -147.5, -202, -179.70001, -175, -197.1, -151, -204.29999, -137, -216.9, -103, -220, -46.100006, -220, -26.799988, -210, 27.400024, -205.4, 51, -204.70001, 51, -194.20001, 91, -186, 119, -171, 162.40002, -161.20001, 185, -145, 225.40002, -108.5, 304, -106.38298, 312.06076, -114.893616, 324.7139, -115, 338.40002, -105, 348.90002, -83, 358.40002, -46, 366.90002, -9, 367.90002, 24.200012, 369, 56.299988, 364, 88.29999, 356, 112.599976, 343, 118, 331.3, 114.893616, 324.7139, 106.38298, 312.06076, 108, 306.3, 152.20001, 211, 186.40002, 119, 208.5, 39, 218.79999, -31, 220, -75.20001, 216, -99.29999, 201, -143.5, 190, -160.70001, 169, -185.79999, 135, -211.1, 113.5, -223, 101, -237, 97.400024, -245, 96, -249.29999, 93.61702, -263.82977, 96.07564, -287.51074, 106.38298, -307.94324, 131.91489, -329.03183, 136.17021, -333.24954, 139, -342.9, 132, -350.4, 119, -355.4, 76, -364.8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

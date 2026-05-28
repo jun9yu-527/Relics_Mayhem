@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d4h3k8oqbkxky"]
+
+[ext_resource type="Script" uid="uid://bdvocclirf0eg" path="res://relics/(5)bronzemirror.gd" id="1_51kau"]
+[ext_resource type="Texture2D" uid="uid://cypwaeebvf3u2" path="res://relics/(5)BronzeMirror.png" id="2_o2tss"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jddxd"]
+bounce = 0.05
+
+[node name="BronzeMirror" type="RigidBody2D" unique_id=1277545617 groups=["BronzeMirror"]]
+physics_material_override = SubResource("PhysicsMaterial_jddxd")
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 0.5
+angular_damp = 1.5
+script = ExtResource("1_51kau")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1985994032]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_o2tss")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1389464945]
+scale = Vector2(0.156, 0.156)
+polygon = PackedVector2Array(-35, -366, -78.29999, -359, -110.399994, -351, -134.29999, -341, -179.6, -321, -197.70001, -310, -233.79999, -283, -258.9, -261, -284.1, -234, -313.2, -193, -332.2, -156, -351.4, -107, -361.7, -63, -366.9, -13, -365, 48.200012, -353, 102.400024, -332, 157.59998, -312, 192.70001, -294, 216.59998, -270, 246.90002, -240, 276, -181, 316.90002, -149, 333.2, -89, 354.40002, -50, 362.90002, -24, 366.09998, 55.299988, 363, 108.400024, 350, 147.5, 335, 197.70001, 308, 230.70001, 282, 276.8, 238, 300, 209, 327.09998, 165, 347.40002, 117, 362.5, 56, 368.2, 1, 360, -76.29999, 346, -125.399994, 332, -158.6, 313, -192.70001, 290, -223.70001, 241, -275.8, 193, -312.2, 165, -327.3, 116, -347.4, 76, -359.8, 46, -365)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

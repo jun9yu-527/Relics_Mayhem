@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dt7qmiq8ebwfr"]
+
+[ext_resource type="Script" uid="uid://b4diaim7gfa3i" path="res://relics/(7)combpottery.gd" id="1_prp2q"]
+[ext_resource type="Texture2D" uid="uid://yldy3ei1qmys" path="res://relics/(7)CombPottery.png" id="2_fv8gd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i8716"]
+bounce = 0.05
+
+[node name="CombPottery" type="RigidBody2D" unique_id=1470885564 groups=["CombPottery"]]
+physics_material_override = SubResource("PhysicsMaterial_i8716")
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 0.5
+angular_damp = 1.5
+script = ExtResource("1_prp2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1661569122]
+position = Vector2(-1.1920929e-07, 3.9999998)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("2_fv8gd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1231506980]
+position = Vector2(-1.1920929e-07, 3.9999998)
+scale = Vector2(0.185, 0.185)
+polygon = PackedVector2Array(2, -342.1, -135, -338, -228.20001, -328, -273.7, -318, -286.48648, -313.51352, -292.5, -301, -283, -258.6, -275.6757, -232.43243, -243.24326, -129.72974, -227.02704, -81.081085, -172.97298, 64.86487, -151.35135, 113.51351, -102.702705, 216.21622, -58, 293.59998, -41, 318, -27.027027, 329.72974, -15, 337.59998, -0.44726563, 342.30566, 11.054031, 339.30396, 16.400024, 336, 25.799988, 330, 46.900024, 309, 68, 280, 102.702705, 216.21622, 151.35135, 113.51351, 189.1892, 21.621624, 232.43243, -102.702705, 275.6757, -243.24326, 291, -299, 291.8919, -308.1081, 280.83182, -317.46973, 242, -326.8, 168, -334.9, 124, -338.9)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

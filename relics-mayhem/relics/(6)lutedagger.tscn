@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ds7pomoljbttl"]
+
+[ext_resource type="Script" uid="uid://bkn1gb47r2xn4" path="res://relics/(6)lutedagger.gd" id="1_x83h5"]
+[ext_resource type="Texture2D" uid="uid://15mudgv4i3sr" path="res://relics/(6)LuteDagger.png" id="2_5kwc0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edl3h"]
+bounce = 0.05
+
+[node name="LuteDagger" type="RigidBody2D" unique_id=200650694 groups=["LuteDagger"]]
+physics_material_override = SubResource("PhysicsMaterial_edl3h")
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 0.5
+angular_damp = 1.5
+script = ExtResource("1_x83h5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1354630731]
+position = Vector2(0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5kwc0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=151776248]
+position = Vector2(-8.69751e-06, 1.38644)
+scale = Vector2(0.189, 0.196)
+polygon = PackedVector2Array(4.601857e-05, -394.82877, -9.799988, -386, -26.100006, -361, -44.299988, -321, -54.999996, -284.99997, -58.51631, -267.2376, -63.21425, -216.78589, -66, -175, -68.78302, -139.72673, -82, -100.5, -108, -59, -108, -48.5, -95.20001, -24, -89, -5, -86.32953, 8.858704, -88.16211, 26.305817, -96, 51.5, -116.399994, 108, -124.70001, 152, -127, 176, -124, 198.40002, -119, 211.40002, -105, 240.40002, -86, 262.7, -52, 287.09998, -52, 288.40002, -26.576996, 297.183, -28, 317.2, -28, 323, -32, 347.8, -29.999996, 364.99997, -18, 377.09998, -5.200012, 381, 5.299988, 381, 21.299988, 376, 31, 367, 28.200012, 321, 30, 297.09998, 30, 296.2, 43.400024, 290, 64.599976, 279, 85.50404, 262.3841, 105.472046, 241.00772, 115.32205, 220.86102, 122.6311, 199.57886, 124.70001, 184, 124.62527, 161.6467, 121, 132.79999, 96.5, 49, 88.599976, 14, 92, -12.899994, 92, -17.600006, 109, -53.600006, 85.099976, -96, 72.79999, -131, 60, -256.2, 54.999996, -279.99997, 50, -301, 40, -331.5, 24, -364.6, 9.999999, -384.99997)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

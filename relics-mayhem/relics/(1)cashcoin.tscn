@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ix4mcy5nyffj"]
+
+[ext_resource type="Script" uid="uid://h3v8pbt0umn0" path="res://relics/(1)cashcoin.gd" id="1_anvkf"]
+[ext_resource type="Texture2D" uid="uid://c6kp4j7xx850" path="res://relics/(1)CashCoin.png" id="2_ajy67"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_us3e7"]
+bounce = 0.05
+
+[node name="CashCoin" type="RigidBody2D" unique_id=1215544569 groups=["CashCoin"]]
+physics_material_override = SubResource("PhysicsMaterial_us3e7")
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 0.5
+angular_damp = 1.5
+script = ExtResource("1_anvkf")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1687194208]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_ajy67")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=35101262]
+scale = Vector2(0.049, 0.049)
+polygon = PackedVector2Array(-41, -395.8, -135.5, -375, -198.6, -345, -246.79999, -312, -300, -260, -325.2, -227, -355.1, -175, -374.6, -132, -387.8, -84, -395.09216, -24.68631, -397.39026, 22.709831, -387, 87.29999, -375, 129.40002, -348, 189.59998, -325, 224.59998, -273, 286, -220, 329.2, -164, 360.09998, -130, 374.40002, -74, 389.5, -36, 394.8, 30, 395, 88.29999, 387, 135.5, 373, 187.59998, 349, 234.70001, 317, 290, 269, 319, 233, 347.09998, 190, 378.59998, 120, 390.7, 64, 394.90002, 23, 393, -48.299988, 380, -115.399994, 365, -156.5, 345, -193.70001, 319, -234.70001, 299, -259.8, 261, -298.9, 220, -330.1, 189, -350.3, 161, -363.3, 121, -379.6, 81, -389.6, 49, -396)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

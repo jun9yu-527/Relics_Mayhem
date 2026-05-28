@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bad38vrkhsttv"]
+
+[ext_resource type="Script" uid="uid://77ayd5loexme" path="res://relics/(10)najeonpillow.gd" id="1_0rs3i"]
+[ext_resource type="Texture2D" uid="uid://dlfeyg5472hyg" path="res://relics/(10)NajeonPillow.png" id="2_4wxsj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1l4kk"]
+bounce = 0.05
+
+[node name="NajeonPillow" type="RigidBody2D" unique_id=1999528077 groups=["NajeonPillow"]]
+physics_material_override = SubResource("PhysicsMaterial_1l4kk")
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 0.5
+angular_damp = 1.5
+script = ExtResource("1_0rs3i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2064126198]
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("2_4wxsj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1636227425]
+scale = Vector2(0.255, 0.255)
+polygon = PackedVector2Array(-29, -395.8, -80.29999, -389, -134.29999, -374, -168.5, -361, -200.6, -344, -240.79999, -317, -285, -278, -320, -235, -351.3, -187, -375.6, -132, -391.8, -70, -397, -25, -396, 25, -387, 86.400024, -369, 145.29999, -348, 190.5, -310, 248.79999, -278, 282.8, -230, 324.09998, -184, 352.3, -142, 371.5, -79, 388.40002, -20, 395.8, 36.200012, 396, 95.400024, 385, 140.40002, 371, 200.5, 342, 239.79999, 317, 289, 273, 319, 236, 354.3, 181, 372.5, 140, 388.8, 85, 395.8, 28, 397, -23.100006, 394, -55.200012, 383, -104.399994, 369, -146.5, 349, -189.5, 328, -223.70001, 300, -259.7, 276, -286.9, 245, -314.1, 209, -339.2, 170, -360.4, 139, -373.5, 92, -387.7, 66, -391.8, 30, -397)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

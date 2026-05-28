@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dhup1rm6xiago"]
+
+[ext_resource type="Script" uid="uid://bhl0c1yxcfwlk" path="res://items/mimic_item.gd" id="1_u5nu7"]
+[ext_resource type="Texture2D" uid="uid://b3cojxbdfov6d" path="res://items/mimicitem.png" id="2_tn1sg"]
+
+[node name="MimicItem" type="RigidBody2D" unique_id=1018074578 groups=["Mimic"]]
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 0.5
+angular_damp = 1.5
+script = ExtResource("1_u5nu7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1098181137]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_tn1sg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=77470505]
+polygon = PackedVector2Array(25, -11, 23.508148, -10.005432, 22.547691, -8.47161, 22.312658, 20.912216, 22, 23, 21, 25, 19.418869, 26.581135, 17, 28, 11, 30, 5, 32, -0.08524418, 35.390163, -5, 32, -11, 30, -17, 28, -19, 27, -21, 25, -22, 23, -22.490425, 21.038296, -22.378307, -8.057116, -23.359976, -9.533492, -25, -11, -26.63847, -11.819235, -26.961317, -24.48262, 0.00166893, -31.517643, 26.617376, -24.61768, 26.87373, -12.143944)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

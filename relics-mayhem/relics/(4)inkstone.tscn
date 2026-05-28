@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b3o186ratjk42"]
+
+[ext_resource type="Script" uid="uid://dc7i04ki0dl1d" path="res://relics/(4)inkstone.gd" id="1_i66q1"]
+[ext_resource type="Texture2D" uid="uid://d1eawjnqmoxmi" path="res://relics/(4)InkStone.png" id="2_cewif"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5gfe5"]
+bounce = 0.05
+
+[node name="SlenderDagger" type="RigidBody2D" unique_id=27006808 groups=["InkStone"]]
+physics_material_override = SubResource("PhysicsMaterial_5gfe5")
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 0.5
+angular_damp = 1.5
+script = ExtResource("1_i66q1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2130252930]
+scale = Vector2(0.10156249, 0.10156249)
+texture = ExtResource("2_cewif")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=763616791]
+scale = Vector2(0.167, 0.167)
+polygon = PackedVector2Array(-20, -280.1, -48.200012, -278, -85.399994, -271, -125.29999, -260, -147.5, -251, -181.5, -233, -207.70001, -213, -228.9, -191, -241.20001, -171, -247.5, -153, -249.9, -138, -250, -115.899994, -250, -104.79999, -245.6, -83, -249, -67.20001, -249, -60, -253.70001, -56, -264, -42.600006, -264, -37.799988, -271.8, -30, -270, -9.600006, -253, 11, -253, 18.599976, -259.2, 32, -267, 59.799988, -267, 91.29999, -260, 119.5, -252, 136.70001, -234, 161.90002, -213, 181.79999, -177, 209.29999, -139, 227.20001, -95, 241.40002, -50, 249.70001, 2.020279, 251.9284, 42.639786, 249.46298, 90.400024, 241, 136.5, 226, 171.70001, 208, 198.79999, 189, 222.79999, 165, 244, 136, 253.40002, 115, 260, 91.20001, 260, 61.700012, 253, 36, 244, 14.5, 259.90002, -5, 264.7, -20, 265, -30.799988, 255.70001, -39, 240.90002, -61, 237, -81.399994, 243, -112.79999, 243, -142.29999, 237, -165.6, 221, -192.79999, 199, -216.1, 164, -239.20001, 135, -253.29999, 107, -263.5, 70, -272.7, 42, -277.9)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://u4skdk6ub5q0"]
+
+[ext_resource type="Texture2D" uid="uid://dibh22kn1uf1n" path="res://items/clockitem.png" id="1_u4aw2"]
+[ext_resource type="Script" uid="uid://bxxfvw6n07y82" path="res://items/clock_item.gd" id="1_xw6da"]
+
+[node name="ClockItem" type="RigidBody2D" unique_id=86873932]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_xw6da")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1077064788]
+position = Vector2(1.4210855e-14, 1.4210855e-14)
+scale = Vector2(0.060913082, 0.060913082)
+texture = ExtResource("1_u4aw2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1021457593]
+position = Vector2(-0.055155545, 0.2722579)
+scale = Vector2(0.060407773, 0.060407776)
+polygon = PackedVector2Array(-39, -463.1, -62.200012, -461, -101.29999, -455, -159.29999, -438, -225.5, -408, -277.7, -374, -336.8, -322, -375.1, -277, -411.3, -218, -434.5, -165, -451.8, -104, -458.8, -43, -459, 27.200012, -445, 99.400024, -424, 163.5, -396, 215.5, -363, 264.8, -312, 320, -250, 365, -194, 396.40002, -144, 415.59998, -85, 429.90002, -19, 436.2, 46.200012, 432, 112.400024, 418, 164.5, 399, 219.59998, 369, 268.7, 334, 313.8, 293, 352, 247, 389.09998, 185, 416.59998, 120, 430.7, 55, 435.90002, -2, 435, -56.200012, 429, -97.29999, 419, -135, 403, -184.5, 380, -229.6, 351, -274.7, 294, -340.9, 257, -373.1, 217, -400.2, 167, -426.4, 137, -438.5, 88, -452.7, 48, -459.9)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
