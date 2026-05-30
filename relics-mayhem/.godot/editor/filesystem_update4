@@ -1,8 +1,4 @@
-res://items/mimic_item.tscn
-res://items/clock_item.gd
-res://manager/game_manager.gd
-res://items/mimic_item.gd
-res://scenes/main/hud.gd
+res://items/block.tscn
+res://items/block.gd
 res://scenes/main/main.gd
-res://scenes/main_menu/main_menu.gd
 res://scenes/main/main.tscn

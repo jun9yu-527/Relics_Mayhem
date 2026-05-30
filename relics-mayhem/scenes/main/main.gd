@@ -7,7 +7,8 @@ enum RelicsList {
 	BEASTTILE,	
 	INKSTONE,	
 	MIMIC,
-	CLOCK 
+	CLOCK,
+	BLOCK
 }
 
 # 씬 파일들을 미리 로드하여 인스턴스화할 준비
@@ -17,6 +18,7 @@ enum RelicsList {
 @onready var inkstone: PackedScene = preload("res://relics/(4)inkstone.tscn")
 @onready var mimic: PackedScene = preload("res://items/mimic_item.tscn")
 @onready var clock: PackedScene = preload("res://items/clock_item.tscn") 
+@onready var block: PackedScene = preload("res://items/block.tscn")
 
 # 다음 유물 프리뷰에 표시할 텍스처 파일들을 미리 로드
 @onready var cashcoin_texture: Texture = preload("res://relics/(1)CashCoin.png")
@@ -25,6 +27,7 @@ enum RelicsList {
 @onready var inkstone_texture: Texture = preload("res://relics/(4)InkStone.png")
 @onready var mimic_texture: Texture = preload("res://items/mimicitem.png")
 @onready var clock_texture: Texture = preload("res://items/clockitem.png")
+@onready var block_texture: Texture = preload("res://items/block.png")
 
 # 유물 투하 후 다음 유물이 생성되기까지의 대기 시간을 다루는 타이머
 @onready var spawn_timer: Timer = $SpawnController/Timer
@@ -88,7 +91,7 @@ func _draw() -> void:
 		var start_x: float = controll_relics.global_position.x - global_position.x
 		# 현재 노드 기준의 로컬 Y 시작 좌표 계산
 		var start_y: float = (controll_relics.global_position.y - global_position.y) + 5.0
-		# 계산된 좌표부터 아래로 guide_line_length만큼 반투명한 흰색 가이드라인을 그림
+		# 계산된 좌표부터 아래로 guide_line_length 만큼 반투명한 흰색 가이드라인을 그림
 		draw_line(Vector2(start_x, start_y), Vector2(start_x, start_y + guide_line_length), Color(1, 1, 1, 0.4), 2.5)
 		
 func update_guide_line() -> void:
@@ -231,18 +234,27 @@ func _on_timer_timeout() -> void:
 		RelicsList.INKSTONE: controll_relics = inkstone.instantiate() 
 		RelicsList.MIMIC: controll_relics = mimic.instantiate() 
 		RelicsList.CLOCK: controll_relics = clock.instantiate()
+		RelicsList.BLOCK: 
+			controll_relics = block.instantiate()
+			var sizes: Array[float] = [0.05, 0.075, 0.11]
+			var random_size: float = sizes[randi() % sizes.size()]
+		
+			# 인스턴스화된 방해물 노드의 스프라이트 및 콜리전 크기(scale)를 직접 변경
+			for child in controll_relics.get_children():
+				if child is Sprite2D or child is CollisionPolygon2D:
+					child.scale = Vector2(random_size, random_size)
 	
 	# 확률 연산을 위한 랜덤 소수값 추출
+	# 미믹 5%, 시계 1%, 방해물 2%, 나머지 92%는 일반 유물로 확률을 분배
 	var rand_val = randf()
-	# 5% 확률로 다음 유물을 미믹 아이템으로 예약
 	if rand_val < 0.05: 
 		next_relics = RelicsList.MIMIC  
-		# 1% 확률로 다음 유물을 시계 아이템으로 예약
 	elif rand_val < 0.06:
-		next_relics = RelicsList.CLOCK
-		# 나머지 94%의 일반적인 확률로는 일반 유물 중 하나를 무작위 선택하여 예약
+		next_relics = RelicsList.CLOCK 
+	elif rand_val < 0.08: 
+		next_relics = RelicsList.BLOCK 
 	else: 
-		next_relics = randi_range(0, RelicsList.INKSTONE as int) as RelicsList 
+		next_relics = randi_range(0, RelicsList.INKSTONE as int) as RelicsList
 	
 	# 새롭게 예약된 차기 유물의 종류에 맞춰 우측 상단 예고 UI 텍스처를 변경
 	match next_relics: 
@@ -252,7 +264,7 @@ func _on_timer_timeout() -> void:
 		RelicsList.INKSTONE: next_relics_img.texture = inkstone_texture 
 		RelicsList.MIMIC: next_relics_img.texture = mimic_texture 
 		RelicsList.CLOCK: next_relics_img.texture = clock_texture 
-		
+		RelicsList.BLOCK: next_relics_img.texture = block_texture
 	# 새로 플레이어가 조작할 유물을 씬 트리에 등록하고 상단 초기 위치에 대기시킴
 	add_child(controll_relics) 
 	controll_relics.position = init_position
@@ -263,9 +275,10 @@ func _on_timer_timeout() -> void:
 	# 가이드라인을 새롭게 그리기 위해 갱신 요청
 	queue_redraw()
 
+
 # 환경설정 (배경음악, 효과음 음량 조절 넣기 / 메인화면 & 일시정지)
 # 일시정지 화면 조금 더 꾸미기
-# 아이템 한개 더 추가 or 방해 요소 추가 - 독자적인 요소 추가를 위해
+# 아이템 한개 더 추가 or 방해 요소 추가 - 독자적인 요소 추가를 위해 ( 0
 # 시간이 된다면 이미지 새로 뽑기
 # 미믹 효과음 새로 찾기
 # 게임 방법에 아이템과 방해요소 설명 추가

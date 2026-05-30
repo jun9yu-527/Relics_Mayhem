@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cmnyhl1qngv20"]
+
+[ext_resource type="Script" uid="uid://bsl3k2iqfp84o" path="res://items/block.gd" id="1_dqlqh"]
+[ext_resource type="Texture2D" uid="uid://bqxchj8bxeeps" path="res://items/block.png" id="1_v5wp6"]
+
+[node name="Block" type="RigidBody2D" unique_id=1312691029 groups=["Block"]]
+script = ExtResource("1_dqlqh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1952115628]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_v5wp6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=788334558]
+scale = Vector2(0.049, 0.049)
+polygon = PackedVector2Array(-27, -370, -27, -368.8, -75.29999, -362, -128.5, -348, -175.5, -325, -230.79999, -290, -273.8, -248, -303, -212, -329.3, -171, -348.3, -126, -364.5, -66, -369.8, -23, -370, 22, -370, 35.200012, -359, 91.400024, -343, 143.5, -311, 199.40002, -276, 246.79999, -247, 276, -202, 311.2, -163, 333.40002, -111, 354.59998, -66, 364.59998, -28.100006, 371, 31.200012, 371, 84.400024, 361, 125.29999, 349, 172.59998, 329, 215.59998, 301, 255.70001, 267, 295.90002, 223, 328.3, 175, 349.3, 126, 364.5, 72, 372, 26, 372, -24.100006, 366, -64.29999, 356, -104.29999, 345, -137.5, 328, -173.6, 308, -206.70001, 256, -267.8, 218, -300, 195, -316.2, 169, -331.3, 130, -348.6, 74, -363.8, 42, -367.8, 42, -369)
