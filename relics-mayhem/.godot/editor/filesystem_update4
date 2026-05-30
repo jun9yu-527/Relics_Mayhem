@@ -1,6 +1,5 @@
-res://items/block.gd
-res://scenes/main/main.gd
+res://items/clock_item.tscn
 res://items/clock_item.gd
 res://scenes/main/main.tscn
+res://scenes/main_menu/main_menu.gd
 res://scenes/main_menu/main_menu.tscn
-res://items/mimic_item.gd

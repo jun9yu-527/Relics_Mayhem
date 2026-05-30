@@ -42,7 +42,8 @@ var tutorial_slides: Array[Texture] = [
 # 정보창에 사용될 2장의 이미지 리소스 배열
 var info_slides: Array[Texture] = [
 	preload("res://scenes/main_menu/Info/Info(1).png"),
-	preload("res://scenes/main_menu/Info/Info(2).png")
+	preload("res://scenes/main_menu/Info/Info(2).png"),
+	preload("res://scenes/main_menu/Info/Info(3).png")
 ]
 
 # 현재 보여지고 있는 튜토리얼 페이지 번호 

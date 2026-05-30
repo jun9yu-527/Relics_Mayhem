@@ -30,8 +30,8 @@ func _on_body_entered(body: Node) -> void:
 		visible = false
 		# 자기 자신의 모든 자식 노드를 돌며 충돌체를 찾아 비활성화 (추가 충돌 방지)
 		for child in get_children():
-			if child is CollisionPolygon2D:
-				child.disabled = true
+			if child is CollisionShape2D or child is CollisionPolygon2D:
+				child.set_deferred("disabled", true)
 				
 		# 물리 연산 도중 오작동을 막기 위해 1프레임 지연시켜 대상을 사라지게 하는 연출 함수 호출
 		call_deferred("_start_clockwise_disappear", body)
