@@ -97,5 +97,5 @@ func _get_next_relic_keyword(target_body: Node) -> String:
 	if target_body.is_in_group("GoryeoCeladon"):
 		return "NAJEONPILLOW"
 
-	# 일치하는 그룹이 없다면 알 수 없음 반환 (오 확인을 위해 추가함)
+	# 일치하는 그룹이 없다면 알 수 없음 반환 (오류 확인을 위해 추가함)
 	return "UNKNOWN"

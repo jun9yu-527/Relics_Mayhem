@@ -28,9 +28,9 @@ func _on_body_entered(body: Node) -> void:
 			player.finished.connect(player.queue_free)
 			
 		visible = false
-		# 자기 자신의 모든 자식 노드를 돌며 충돌체(CollisionShape2D)를 찾아 비활성화 (추가 충돌 방지)
+		# 자기 자신의 모든 자식 노드를 돌며 충돌체를 찾아 비활성화 (추가 충돌 방지)
 		for child in get_children():
-			if child is CollisionShape2D:
+			if child is CollisionPolygon2D:
 				child.disabled = true
 				
 		# 물리 연산 도중 오작동을 막기 위해 1프레임 지연시켜 대상을 사라지게 하는 연출 함수 호출
@@ -45,9 +45,9 @@ func _start_clockwise_disappear(target_body: Node) -> void:
 			queue_free()
 		return
 		
-	# 대상 오브젝트의 충돌체(CollisionShape2D)를 모두 제거하여 물리 연산에서 제외
+	# 대상 오브젝트의 충돌체를 모두 제거하여 물리 연산에서 제외
 	for child in target_body.get_children():
-		if child is CollisionShape2D:
+		if child is CollisionPolygon2D:
 			child.queue_free()
 			
 	# 대상 오브젝트가 움직이지 않도록 물리 상태를 초기화

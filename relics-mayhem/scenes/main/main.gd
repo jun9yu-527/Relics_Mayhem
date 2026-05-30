@@ -36,6 +36,15 @@ enum RelicsList {
 # 유물의 낙하 예상 지점을 보여주는 가이드라인 노드
 @onready var guide_line: Line2D = get_node_or_null("GuideLine")
 
+# 최초 0%에서 시작하여 서서히 누적되는 블럭 확률
+var block_chance: float = 0.0
+# 블록이 출현하기 시작하는 최소 점수 기준
+const BLOCK_MIN_SCORE: int = 100
+# 일반 유물이 나올 때마다 쌓이는 확률 누적값 (1%씩 증가)
+const BLOCK_CHANCE_INCREMENT: float = 0.01
+# 유물이 4개 떨어지는 타이밍을 재기 위한 누적 카운터 변수
+var drop_count_for_chance: int = 0
+
 # 현재 플레이어가 좌우로 조작 중인 유물 노드 참조 변수
 var controll_relics: Node2D 
 # 다음에 등장할 유물의 종류를 저장하는 변수
@@ -63,7 +72,6 @@ const GAME_OVER_DELAY: float = 1.0
 const GAME_OVER_SETTLED_SPEED: float = 25.0
 # 유물이 데드라인을 넘은 채 유지된 누적 시간
 var game_over_elapsed: float = 0.0
-		  
 
 func _ready() -> void:
 	# 게임이 일시정지 상태일 때 이 노드의 연산도 같이 멈추도록 설정
@@ -223,7 +231,7 @@ func init_relics() -> void:
 func _on_timer_timeout() -> void:
 	# 방금 떨어뜨린 유물이 아직 존재한다면 "FallenRelics" 그룹에 추가하여 게임오버 추적 대상에 포함시킴
 	if is_instance_valid(controll_relics): 
-		controll_relics.add_to_group("FallenRelics") 
+		controll_relics.add_to_group("FallenRelics")
 		
 	# 이전에 예약되어 대기 중이던 next_relics 종류에 맞춰 새 유물의 인스턴스를 실제로 생성
 	var relics_list: RelicsList = next_relics
@@ -236,25 +244,43 @@ func _on_timer_timeout() -> void:
 		RelicsList.CLOCK: controll_relics = clock.instantiate()
 		RelicsList.BLOCK: 
 			controll_relics = block.instantiate()
-			var sizes: Array[float] = [0.05, 0.075, 0.11]
+			var sizes: Array[float] = [0.05, 0.08, 0.12]
 			var random_size: float = sizes[randi() % sizes.size()]
 		
-			# 인스턴스화된 방해물 노드의 스프라이트 및 콜리전 크기(scale)를 직접 변경
+			# CollisionPolygon2D 전용 데이터 좌표 갱신 연산 적용
 			for child in controll_relics.get_children():
 				if child is Sprite2D or child is CollisionPolygon2D:
+					# 이미지와 콜리전 노드 자체의 스케일을 똑같이 맞춤
 					child.scale = Vector2(random_size, random_size)
 	
 	# 확률 연산을 위한 랜덤 소수값 추출
-	# 미믹 5%, 시계 1%, 방해물 2%, 나머지 92%는 일반 유물로 확률을 분배
 	var rand_val = randf()
+	# 실시간 밸런싱 검사를 위해 싱글톤에서 현재 점수 획득
+	var current_score = GameManager.get_score()
+	
+	# 피로도 및 쿨타임 시스템이 통합된 차기 유물 스폰 확률 매칭 알고리즘
 	if rand_val < 0.05: 
 		next_relics = RelicsList.MIMIC  
 	elif rand_val < 0.06:
 		next_relics = RelicsList.CLOCK 
-	elif rand_val < 0.08: 
-		next_relics = RelicsList.BLOCK 
+	# 점수 100점 이상이며 피로도 확률에 따라 블럭 등장
+	elif current_score >= BLOCK_MIN_SCORE and rand_val < (0.06 + block_chance):
+		next_relics = RelicsList.BLOCK
+		# 블럭 소환이 확정되면 축적되었던 피로도 확률을 즉시 0%로 초기화
+		block_chance = 0.0
+		# 블럭이 나왔으므로 3개 세는 카운터도 0으로 함께 리셋
+		drop_count_for_chance = 0
 	else: 
 		next_relics = randi_range(0, RelicsList.INKSTONE as int) as RelicsList
+		# 일반 유물이 두번 뽑혔고 현재 점수가 100점 이상이라면 다음 소환을 위해 블럭 확률을 1% 가산
+		if current_score >= BLOCK_MIN_SCORE:
+			#유물 투하 카운트를 1 증가
+			drop_count_for_chance += 1
+			
+			# 유물이 3개 나오면 블럭 소환 확률을 1% 올리고 카운터 리셋
+			if drop_count_for_chance >= 3:
+				block_chance += BLOCK_CHANCE_INCREMENT
+				drop_count_for_chance = 0
 	
 	# 새롭게 예약된 차기 유물의 종류에 맞춰 우측 상단 예고 UI 텍스처를 변경
 	match next_relics: 
@@ -274,8 +300,7 @@ func _on_timer_timeout() -> void:
 	in_control = true 
 	# 가이드라인을 새롭게 그리기 위해 갱신 요청
 	queue_redraw()
-
-
+	
 # 환경설정 (배경음악, 효과음 음량 조절 넣기 / 메인화면 & 일시정지)
 # 일시정지 화면 조금 더 꾸미기
 # 아이템 한개 더 추가 or 방해 요소 추가 - 독자적인 요소 추가를 위해 ( 0
