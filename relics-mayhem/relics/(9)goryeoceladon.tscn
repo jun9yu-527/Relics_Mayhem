@@ -7,8 +7,9 @@
 bounce = 0.05
 
 [node name="GoryeoCeladon" type="RigidBody2D" unique_id=695525910 groups=["GoryeoCeladon"]]
+mass = 24.0
 physics_material_override = SubResource("PhysicsMaterial_c1fdp")
-continuous_cd = 2
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 10
 linear_damp = 0.5

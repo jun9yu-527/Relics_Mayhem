@@ -7,8 +7,9 @@
 bounce = 0.05
 
 [node name="NajeonPillow" type="RigidBody2D" unique_id=1999528077 groups=["NajeonPillow"]]
+mass = 27.0
 physics_material_override = SubResource("PhysicsMaterial_1l4kk")
-continuous_cd = 2
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 10
 linear_damp = 0.5

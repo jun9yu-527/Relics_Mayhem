@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqxchj8bxeeps" path="res://items/block.png" id="1_v5wp6"]
 
 [node name="Block" type="RigidBody2D" unique_id=1312691029 groups=["Block"]]
+mass = 3.0
 script = ExtResource("1_dqlqh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1952115628]

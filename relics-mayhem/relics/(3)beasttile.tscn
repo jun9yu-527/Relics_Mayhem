@@ -7,8 +7,9 @@
 bounce = 0.05
 
 [node name="BeastTile" type="RigidBody2D" unique_id=288598415 groups=["BeastTile"]]
+mass = 6.0
 physics_material_override = SubResource("PhysicsMaterial_8nydw")
-continuous_cd = 2
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 10
 linear_damp = 0.5

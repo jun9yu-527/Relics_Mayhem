@@ -7,6 +7,7 @@
 bounce = 0.05
 
 [node name="BronzeMirror" type="RigidBody2D" unique_id=1277545617 groups=["BronzeMirror"]]
+mass = 12.0
 physics_material_override = SubResource("PhysicsMaterial_jddxd")
 continuous_cd = 1
 contact_monitor = true

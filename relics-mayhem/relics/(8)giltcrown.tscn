@@ -7,8 +7,9 @@
 bounce = 0.05
 
 [node name="GiltCrown" type="RigidBody2D" unique_id=1486008705 groups=["GiltCrown"]]
+mass = 21.0
 physics_material_override = SubResource("PhysicsMaterial_le3du")
-continuous_cd = 2
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 10
 linear_damp = 0.5
