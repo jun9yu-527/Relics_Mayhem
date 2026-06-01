@@ -1,5 +1,5 @@
 72322a848ab928aa5c89f0cb78209805
-::res://::1780207067
+::res://::1780301674
 export_presets.cfg::TextFile::-1::1780193027::0::1::::<><><>0<>0<><>::
 icon.png::CompressedTexture2D::3374541586949851092::1780193027::1780193065::1::::<><><>0<>0<>7c24d87d736d3818f1c1bd9864e75663<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
 ::res://fonts/::1780193027
@@ -77,11 +77,11 @@ new_compressed_texture_2d.tres::CompressedTexture2D::7949709873803323979::178019
 ::res://scenes/background/::1780199014
 background.tscn::PackedScene::8973619918389415884::1780199014::0::1::::<><><>0<>0<><>::
 MainBackground.png::CompressedTexture2D::7231331072831846999::1780193027::1780193065::1::::<><><>0<>0<>b0e3b86f23b81f7bda37c2fc6a923d84<>res://.godot/imported/MainBackground.png-121def15a7174f1b588646c0425826f4.ctex::
-::res://scenes/main/::1780200262
+::res://scenes/main/::1780299915
 game_over_area.gd::GDScript::2904734565986700178::1780193027::0::1::::<>Area2D<><>0<>0<><>::
 hud.gd::GDScript::5138163776772311853::1780193027::0::1::::<>CanvasLayer<><>0<>0<><>::
-main.gd::GDScript::5131918797854101466::1780200262::0::1::::<>Node2D<><>0<>0<><>::
-main.tscn::PackedScene::8121371123296353781::1780200261::0::1::::<><><>0<>0<><>::uid://cfd67nps577o5::::res://scenes/main/main.gd<>uid://d035hdujwvqkq::::res://scenes/background/background.tscn<>uid://bhncs3lciois5::::res://scenes/main/game_over_area.gd<>uid://d0iiv6p5xtb14::::res://ui/new_compressed_texture_2d.tres<>uid://cfg72os4mo5kr::::res://scenes/main/hud.gd<>uid://dylxrovx8p1ku::::res://ui/Score.png<>uid://rmfvyvbi1ic7::::res://fonts/Paperlogy/Paperlogy-5Medium.ttf<>uid://1y6ryca4gyqe::::res://ui/Description.png<>uid://cvit72qscw6sk::::res://ui/Bset.png<>uid://cxfl0nbe7enio::::res://fonts/Paperlogy/Paperlogy-9Black.ttf<>uid://rhxis5hthbtm::::res://fonts/Paperlogy/Paperlogy-7Bold.ttf
+main.gd::GDScript::5131918797854101466::1780299611::0::1::::<>Node2D<><>0<>0<><>::
+main.tscn::PackedScene::8121371123296353781::1780299915::0::1::::<><><>0<>0<><>::uid://cfd67nps577o5::::res://scenes/main/main.gd<>uid://d035hdujwvqkq::::res://scenes/background/background.tscn<>uid://bhncs3lciois5::::res://scenes/main/game_over_area.gd<>uid://d0iiv6p5xtb14::::res://ui/new_compressed_texture_2d.tres<>uid://cfg72os4mo5kr::::res://scenes/main/hud.gd<>uid://dylxrovx8p1ku::::res://ui/Score.png<>uid://rmfvyvbi1ic7::::res://fonts/Paperlogy/Paperlogy-5Medium.ttf<>uid://1y6ryca4gyqe::::res://ui/Description.png<>uid://cvit72qscw6sk::::res://ui/Bset.png<>uid://cxfl0nbe7enio::::res://fonts/Paperlogy/Paperlogy-9Black.ttf<>uid://rhxis5hthbtm::::res://fonts/Paperlogy/Paperlogy-7Bold.ttf
 ::res://scenes/main_menu/::1780195492
 MainBackGround.png::CompressedTexture2D::1881530766314443607::1780193027::1780193066::1::::<><><>0<>0<>b36ffcd3a65fa9a245360c56aa9f451f<>res://.godot/imported/MainBackGround.png-c7adc6ef8bcb237b9edaf401043f4139.ctex::
 main_menu.gd::GDScript::932678624261941719::1780194441::0::1::::<>Control<><>0<>0<><>::
@@ -106,8 +106,9 @@ MimicSound.mp3::AudioStreamMP3::4677300616126633461::1780193027::1780193065::1::
 NextRelics.mp3::AudioStreamMP3::1615478453121415417::1780193027::1780193065::1::::<><><>0<>0<>7ca91f63cfcd65ff5556339b9ce51e10<>res://.godot/imported/NextRelics.mp3-3281f3e16bc431350a9aedb9c0a1d945.mp3str::
 Pause.mp3::AudioStreamMP3::7472325868706063232::1780193027::1780193065::1::::<><><>0<>0<>d872b64766aa9e53e015e90008f44077<>res://.godot/imported/Pause.mp3-3d0e8b24ad31a3e16b1e41a08fbc93f7.mp3str::
 ToMenu.mp3::AudioStreamMP3::520662442488319630::1780193027::1780193065::1::::<><><>0<>0<>67828b1f36ae235cb33e21316a7d333c<>res://.godot/imported/ToMenu.mp3-d5f7ae752987088fe21a4457f4ad9be7.mp3str::
-::res://ui/::1780193066
+::res://ui/::1780289756
 Bset.png::CompressedTexture2D::6264534317753615866::1780193027::1780193066::1::::<><><>0<>0<>28089307167473a6b70f848d271fe969<>res://.godot/imported/Bset.png-cb152fb3b92d869500233b766cb9326b.ctex::
+deadline_tile.png::CompressedTexture2D::7476809214988730537::1780289754::1780289756::1::::<><><>0<>0<>16c4f53990984d06089b7e4e74d71a4d<>res://.godot/imported/deadline_tile.png-f6b98651c4bfc8fc02d282136f04f253.ctex::
 Description.png::CompressedTexture2D::1876368849647450372::1780193027::1780193066::1::::<><><>0<>0<>aa006df6441b8aaf659ffdb741d6b4c2<>res://.godot/imported/Description.png-3e4c6d15de2f75d040aab25f2e71d47e.ctex::
 Exit(1).png::CompressedTexture2D::809046511693370649::1780193027::1780193066::1::::<><><>0<>0<>37205ec21cbafd234f581e3b252d11fc<>res://.godot/imported/Exit(1).png-ced5300dcdba9251d357e587130424e6.ctex::
 Exit(2).png::CompressedTexture2D::7604385174232032726::1780193027::1780193066::1::::<><><>0<>0<>773d41c00f92afc5c87afa909e5d936f<>res://.godot/imported/Exit(2).png-4d3c7e9860895d7c1a15a8fb4fbccf6f.ctex::
