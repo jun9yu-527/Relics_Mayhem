@@ -176,7 +176,7 @@ func _on_restart_button_pressed() -> void:
 
 # '메뉴로 이동' 버튼 눌림 처리
 func _on_to_menu_button_pressed() -> void:
-	_play_ui_audio(menu_sound)     
+	_play_ui_audio(menu_sound)
 	get_tree().paused = false      
 	GameManager.set_score(0)       
 	GameManager.set_game_over(false) 

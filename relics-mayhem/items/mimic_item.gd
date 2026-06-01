@@ -2,7 +2,7 @@ extends RigidBody2D
 
 # 에디터에서 변경 가능한 미믹 전용 효과음 리소스
 @export var sound_effect: AudioStream = preload("res://sounds/MimicSound.mp3")
-		
+
 # 다른 물리 바디와 충돌했을 때 호출되는 콜백 함수
 func _on_body_entered(body: Node) -> void:
 	# 충돌한 대상이("FallenRelics")그룹이 아니라면 무시
@@ -66,7 +66,7 @@ func spawn_next_level(target_body: Node) -> void:
 func _play_mimic_sound() -> void:
 	if not sound_effect:
 		return
-
+	
 	var player = AudioStreamPlayer2D.new()
 	player.stream = sound_effect
 	get_tree().root.add_child(player)

@@ -23,6 +23,7 @@ config/icon="uid://bocwhbgn1ke6w"
 [autoload]
 
 GameManager="*res://manager/game_manager.gd"
+TransitionLayer="*uid://o1nffabjravx"
 
 [display]
 

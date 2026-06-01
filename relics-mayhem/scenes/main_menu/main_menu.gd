@@ -130,7 +130,7 @@ func _on_start_button_pressed() -> void:
 		bgm_player.stop()
 		bgm_player.queue_free()
 	# 실제 인게임 플레이 씬으로 전환
-	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+	TransitionLayer.start_transition("res://scenes/main/main.tscn")
 
 func _on_tutorial_button_pressed() -> void:
 	_play_sound(menu_click_sound)

@@ -1,1 +1,6 @@
-res://scenes/main_menu/main_menu.tscn
+res://scenes/transition/transition_layer.gd
+res://scenes/transition/transition_layer.tscn
+res://scenes/transition/transition_layer.gdshader
+res://scenes/transition/transition_layer_R.gdshader
+res://scenes/transition/Circle.gdshader
+res://scenes/main/main.tscn
