@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dxa3tm0u0n0rn" path="res://scenes/transition/transition_layer.gd" id="1_4juay"]
 [ext_resource type="Shader" uid="uid://decd70lk4f0wi" path="res://scenes/transition/Circle.gdshader" id="2_b64dh"]
 [ext_resource type="FontFile" uid="uid://b63ng1uuanspo" path="res://fonts/ONE Mobile POP/ONE Mobile POP.ttf" id="3_e3we2"]
+[ext_resource type="Texture2D" uid="uid://c6kp4j7xx850" path="res://relics/(1)CashCoin.png" id="4_yynrf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e3we2"]
 shader = ExtResource("2_b64dh")
@@ -48,3 +49,45 @@ grow_vertical = 2
 size_flags_horizontal = 4
 text = "Ready"
 label_settings = SubResource("LabelSettings_yynrf")
+
+[node name="RelicsContainer" type="Node2D" parent="." unique_id=755157385]
+
+[node name="Relic1" type="Sprite2D" parent="RelicsContainer" unique_id=258226793]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
+
+[node name="Relic2" type="Sprite2D" parent="RelicsContainer" unique_id=1727475544]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
+
+[node name="Relic3" type="Sprite2D" parent="RelicsContainer" unique_id=1838253971]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
+
+[node name="Relic4" type="Sprite2D" parent="RelicsContainer" unique_id=508036473]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
+
+[node name="Relic5" type="Sprite2D" parent="RelicsContainer" unique_id=98943043]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
+
+[node name="Relic6" type="Sprite2D" parent="RelicsContainer" unique_id=244871412]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
+
+[node name="Relic7" type="Sprite2D" parent="RelicsContainer" unique_id=2037404439]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
+
+[node name="Relic8" type="Sprite2D" parent="RelicsContainer" unique_id=707117489]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
+
+[node name="Relic9" type="Sprite2D" parent="RelicsContainer" unique_id=1140566974]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
+
+[node name="Relic10" type="Sprite2D" parent="RelicsContainer" unique_id=648908917]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yynrf")
