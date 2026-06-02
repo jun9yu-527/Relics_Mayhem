@@ -69,6 +69,7 @@ func _play_mimic_sound() -> void:
 	
 	var player = AudioStreamPlayer2D.new()
 	player.stream = sound_effect
+	player.bus = "SFX"
 	get_tree().root.add_child(player)
 	# 현재 미믹의 전역 위치 좌표에서 소리가 나도록 설정
 	player.global_position = global_position

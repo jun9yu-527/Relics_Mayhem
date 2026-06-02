@@ -3,7 +3,25 @@
 [ext_resource type="Script" uid="uid://dxa3tm0u0n0rn" path="res://scenes/transition/transition_layer.gd" id="1_4juay"]
 [ext_resource type="Shader" uid="uid://decd70lk4f0wi" path="res://scenes/transition/Circle.gdshader" id="2_b64dh"]
 [ext_resource type="FontFile" uid="uid://b63ng1uuanspo" path="res://fonts/ONE Mobile POP/ONE Mobile POP.ttf" id="3_e3we2"]
-[ext_resource type="Texture2D" uid="uid://c6kp4j7xx850" path="res://relics/(1)CashCoin.png" id="4_yynrf"]
+[ext_resource type="Texture2D" uid="uid://bf3m5jd5ofr6y" path="res://scenes/transition/(1)CashCoin.png" id="4_8q1q0"]
+[ext_resource type="Texture2D" uid="uid://borrfn503rlob" path="res://scenes/transition/(2)HandAxe.png" id="5_6p5cd"]
+[ext_resource type="Texture2D" uid="uid://dy6r84xhdrecw" path="res://scenes/transition/(3)BeastTile.png" id="6_ilqcv"]
+[ext_resource type="Texture2D" uid="uid://bfok55w4wddo0" path="res://scenes/transition/(4)InkStone.png" id="7_jvnmg"]
+[ext_resource type="Texture2D" uid="uid://l6dflvqw1lxe" path="res://scenes/transition/(5)BronzeMirror.png" id="8_jbfkb"]
+[ext_resource type="Texture2D" uid="uid://d1ivmsbrqamg0" path="res://scenes/transition/(6)LuteDagger.png" id="9_181g7"]
+[ext_resource type="Texture2D" uid="uid://bejqrrx7qxm8f" path="res://scenes/transition/(7)CombPottery.png" id="10_ww336"]
+[ext_resource type="Texture2D" uid="uid://0m3iyfyjmkdl" path="res://scenes/transition/(8)GiltCrown.png" id="11_cn41t"]
+[ext_resource type="Texture2D" uid="uid://68rmqc48umw4" path="res://scenes/transition/(9)GoryeoCeladon.png" id="12_mmhod"]
+[ext_resource type="Texture2D" uid="uid://d1mbe2pndcjeo" path="res://scenes/transition/(10)NajeonPillow.png" id="13_v0yrl"]
+[ext_resource type="Texture2D" uid="uid://b40iiw2x86c0y" path="res://scenes/main_menu/Setting/SettingPanel.png" id="14_v0yrl"]
+[ext_resource type="FontFile" uid="uid://gjictdbdn7fp" path="res://fonts/Keris/KERISKEDU_B.ttf" id="15_5808e"]
+[ext_resource type="Texture2D" uid="uid://beryyb8w8t1c2" path="res://scenes/main_menu/Setting/check(3).png" id="16_n4vir"]
+[ext_resource type="Texture2D" uid="uid://ccqie4f75ndmd" path="res://scenes/main_menu/Setting/check(1).png" id="17_60g4q"]
+[ext_resource type="Texture2D" uid="uid://tkd02fy3fi86" path="res://scenes/main_menu/Setting/check(4).png" id="18_t1rej"]
+[ext_resource type="Texture2D" uid="uid://vtuu12256xp2" path="res://scenes/main_menu/Setting/check(2).png" id="19_mrpit"]
+[ext_resource type="Texture2D" uid="uid://cokhq0c38pm22" path="res://ui/X(1).png" id="20_xpc6v"]
+[ext_resource type="Texture2D" uid="uid://w5xhhg4fbte0" path="res://ui/X(2).png" id="21_17ps1"]
+[ext_resource type="Texture2D" uid="uid://d0jb61nfg24qi" path="res://ui/X(3).png" id="22_dvv6a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e3we2"]
 shader = ExtResource("2_b64dh")
@@ -14,7 +32,52 @@ shader_parameter/softness = 0.08
 font = ExtResource("3_e3we2")
 font_size = 60
 
+[sub_resource type="LabelSettings" id="LabelSettings_2wme6"]
+font = ExtResource("15_5808e")
+font_size = 26
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5t2mw"]
+texture = ExtResource("16_n4vir")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_anf1j"]
+texture = ExtResource("17_60g4q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d25p5"]
+texture = ExtResource("18_t1rej")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ddmx"]
+texture = ExtResource("19_mrpit")
+
+[sub_resource type="ImageTexture" id="ImageTexture_marnx"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_sjq82"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_q24ss"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ieh0n"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_aaqo6"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ouh61"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_4nmqx"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_46wnd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n30it"]
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.972549, 0.6627451, 0.26666668, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="TransitionLayer" type="CanvasLayer" unique_id=1991305884]
+process_mode = 3
 script = ExtResource("1_4juay")
 
 [node name="FadeRect" type="ColorRect" parent="." unique_id=975481188]
@@ -53,41 +116,221 @@ label_settings = SubResource("LabelSettings_yynrf")
 [node name="RelicsContainer" type="Node2D" parent="." unique_id=755157385]
 
 [node name="Relic1" type="Sprite2D" parent="RelicsContainer" unique_id=258226793]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_8q1q0")
 
 [node name="Relic2" type="Sprite2D" parent="RelicsContainer" unique_id=1727475544]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_6p5cd")
 
 [node name="Relic3" type="Sprite2D" parent="RelicsContainer" unique_id=1838253971]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_ilqcv")
 
 [node name="Relic4" type="Sprite2D" parent="RelicsContainer" unique_id=508036473]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_jvnmg")
 
 [node name="Relic5" type="Sprite2D" parent="RelicsContainer" unique_id=98943043]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_jbfkb")
 
 [node name="Relic6" type="Sprite2D" parent="RelicsContainer" unique_id=244871412]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_181g7")
 
 [node name="Relic7" type="Sprite2D" parent="RelicsContainer" unique_id=2037404439]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_ww336")
 
 [node name="Relic8" type="Sprite2D" parent="RelicsContainer" unique_id=707117489]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_cn41t")
 
 [node name="Relic9" type="Sprite2D" parent="RelicsContainer" unique_id=1140566974]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_mmhod")
 
 [node name="Relic10" type="Sprite2D" parent="RelicsContainer" unique_id=648908917]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_yynrf")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_v0yrl")
+
+[node name="SettingsPanel" type="Panel" parent="." unique_id=2048859916]
+process_mode = 3
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 102.0
+offset_top = 55.0
+offset_right = -98.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingImg" type="TextureRect" parent="SettingsPanel" unique_id=1118509521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_v0yrl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="master" type="Label" parent="SettingsPanel" unique_id=1011538683]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -134.0
+offset_right = -176.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "마스터 볼륨"
+label_settings = SubResource("LabelSettings_2wme6")
+
+[node name="bgm" type="Label" parent="SettingsPanel" unique_id=721660426]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -17.0
+offset_right = -176.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "배경 음악"
+label_settings = SubResource("LabelSettings_2wme6")
+
+[node name="sfx" type="Label" parent="SettingsPanel" unique_id=2072126082]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 97.0
+offset_right = -229.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "효과음"
+label_settings = SubResource("LabelSettings_2wme6")
+
+[node name="MasterCheck" type="CheckBox" parent="SettingsPanel" unique_id=339639257]
+layout_mode = 0
+offset_left = 819.0
+offset_top = 196.99998
+offset_right = 854.2941
+offset_bottom = 232.29411
+scale = Vector2(1.7, 1.7)
+theme_override_styles/normal = SubResource("StyleBoxTexture_5t2mw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_anf1j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d25p5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_4ddmx")
+theme_override_icons/checked = SubResource("ImageTexture_marnx")
+theme_override_icons/unchecked = SubResource("ImageTexture_sjq82")
+theme_override_icons/radio_checked = SubResource("ImageTexture_q24ss")
+theme_override_icons/radio_unchecked = SubResource("ImageTexture_ieh0n")
+theme_override_icons/checked_disabled = SubResource("ImageTexture_aaqo6")
+theme_override_icons/unchecked_disabled = SubResource("ImageTexture_ouh61")
+theme_override_icons/radio_checked_disabled = SubResource("ImageTexture_4nmqx")
+theme_override_icons/radio_unchecked_disabled = SubResource("ImageTexture_46wnd")
+
+[node name="BGMCheck" type="CheckBox" parent="SettingsPanel" unique_id=376826231]
+layout_mode = 0
+offset_left = 819.0
+offset_top = 313.0
+offset_right = 854.2941
+offset_bottom = 348.29413
+scale = Vector2(1.7, 1.7)
+theme_override_styles/normal = SubResource("StyleBoxTexture_5t2mw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_anf1j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d25p5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_4ddmx")
+theme_override_icons/checked = SubResource("ImageTexture_marnx")
+theme_override_icons/unchecked = SubResource("ImageTexture_sjq82")
+theme_override_icons/radio_checked = SubResource("ImageTexture_q24ss")
+theme_override_icons/radio_unchecked = SubResource("ImageTexture_ieh0n")
+theme_override_icons/checked_disabled = SubResource("ImageTexture_aaqo6")
+theme_override_icons/unchecked_disabled = SubResource("ImageTexture_ouh61")
+theme_override_icons/radio_checked_disabled = SubResource("ImageTexture_4nmqx")
+theme_override_icons/radio_unchecked_disabled = SubResource("ImageTexture_46wnd")
+
+[node name="SFXCheck" type="CheckBox" parent="SettingsPanel" unique_id=1774642929]
+layout_mode = 0
+offset_left = 819.0
+offset_top = 429.0
+offset_right = 854.2941
+offset_bottom = 464.29413
+scale = Vector2(1.7, 1.7)
+theme_override_styles/normal = SubResource("StyleBoxTexture_5t2mw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_anf1j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d25p5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_4ddmx")
+theme_override_icons/checked = SubResource("ImageTexture_marnx")
+theme_override_icons/unchecked = SubResource("ImageTexture_sjq82")
+theme_override_icons/radio_checked = SubResource("ImageTexture_q24ss")
+theme_override_icons/radio_unchecked = SubResource("ImageTexture_ieh0n")
+theme_override_icons/checked_disabled = SubResource("ImageTexture_aaqo6")
+theme_override_icons/unchecked_disabled = SubResource("ImageTexture_ouh61")
+theme_override_icons/radio_checked_disabled = SubResource("ImageTexture_4nmqx")
+theme_override_icons/radio_unchecked_disabled = SubResource("ImageTexture_46wnd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel" unique_id=2028580792]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.5
+offset_top = -86.0
+offset_right = 258.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="MasterSlider" type="HSlider" parent="SettingsPanel/VBoxContainer" unique_id=1540581337]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_n30it")
+
+[node name="BGMSlider" type="HSlider" parent="SettingsPanel/VBoxContainer" unique_id=211388932]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_n30it")
+
+[node name="SFXSlider" type="HSlider" parent="SettingsPanel/VBoxContainer" unique_id=1824020147]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_n30it")
+
+[node name="CloseButton" type="TextureButton" parent="SettingsPanel" unique_id=661093453]
+layout_mode = 0
+offset_left = 978.0
+offset_top = 102.0
+offset_right = 1038.0
+offset_bottom = 162.0
+texture_normal = ExtResource("20_xpc6v")
+texture_pressed = ExtResource("21_17ps1")
+texture_hover = ExtResource("22_dvv6a")
+
+[connection signal="toggled" from="SettingsPanel/MasterCheck" to="." method="_on_master_check_toggled"]
+[connection signal="toggled" from="SettingsPanel/BGMCheck" to="." method="_on_bgm_check_toggled"]
+[connection signal="toggled" from="SettingsPanel/SFXCheck" to="." method="_on_sfx_check_toggled"]
+[connection signal="value_changed" from="SettingsPanel/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="SettingsPanel/VBoxContainer/BGMSlider" to="." method="_on_bgm_slider_value_changed"]
+[connection signal="value_changed" from="SettingsPanel/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="SettingsPanel/CloseButton" to="." method="close_settings"]

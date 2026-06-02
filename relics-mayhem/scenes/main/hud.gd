@@ -38,6 +38,8 @@ extends CanvasLayer
 # 효과음 볼륨 (데시벨 단위)
 @export var sfx_volume_db: float = -10.0
 
+@onready var pause_settings_button: TextureButton = $Control/PauseContainer/SettingsButton
+
 # UI에서 현재 기억하고 있는 점수
 var score: int = 0
 # 이전 프레임의 게임 오버 상태
@@ -132,14 +134,11 @@ func _play_ui_audio(stream: AudioStream) -> void:
 	if stream:
 		var player = AudioStreamPlayer.new()
 		player.stream = stream
-		player.volume_db = sfx_volume_db
-		# 일시정지 상태에서도 재생 가능하게 설정
+		player.bus = "SFX"
 		player.process_mode = Node.PROCESS_MODE_ALWAYS
-		# 최상단 루트 노드에 추가
-		get_tree().root.add_child(player)
-		# 사운드 시작
+		get_tree().root.call_deferred("add_child", player)  # ← 변경
+		await player.ready  # ← 추가
 		player.play()
-		# 재생이 종료되면 자동으로 플레이어 메모리 해제            
 		player.finished.connect(player.queue_free)
 
 # 모든 버튼의 pressed 시그널과 대응하는 콜백 함수들을 수동으로 연결하는 함수
@@ -155,8 +154,11 @@ func _connect_button_sounds() -> void:
 
 	if over_to_menu_button and not over_to_menu_button.is_connected("pressed", _on_to_menu_button_pressed):
 		over_to_menu_button.pressed.connect(_on_to_menu_button_pressed)
+		
+	if pause_settings_button and not pause_settings_button.is_connected("pressed", _on_pause_settings_button_pressed):
+		pause_settings_button.pressed.connect(_on_pause_settings_button_pressed)
 
-# '계속하기' 버튼 눌림 처리
+# '돌아가기' 버튼 눌림 처리
 func _on_resume_button_pressed() -> void:
 	# 클릭 효과음 재생
 	_play_ui_audio(click_sound) 
@@ -165,6 +167,11 @@ func _on_resume_button_pressed() -> void:
 	if pause_panel:
 		# 일시정지 팝업 숨김
 		pause_panel.visible = false 
+
+# '환경설정' 버튼 눌림 처리
+func _on_pause_settings_button_pressed() -> void:
+	_play_ui_audio(click_sound)
+	TransitionLayer.open_settings()
 
 # '다시 시작' 버튼 눌림 처리
 func _on_restart_button_pressed() -> void:

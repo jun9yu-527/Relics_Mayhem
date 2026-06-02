@@ -22,6 +22,7 @@ func _on_body_entered(body: Node) -> void:
 		if sound_effect:
 			var player = AudioStreamPlayer2D.new()
 			player.stream = sound_effect
+			player.bus = "SFX"
 			get_tree().root.add_child(player)
 			player.global_position = global_position
 			player.play()

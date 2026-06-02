@@ -30,6 +30,8 @@ func _ready() -> void:
 	add_child(grow_audio_player)
 	# 게임이 시작될 때 기존에 저장된 최고 점수 기록을 로드
 	load_high_scores()
+	# 환경설정 - 효과음으로 조정 가능
+	grow_audio_player.bus = "SFX"
 
 # 게임 오버 상태를 반환
 func get_game_over() -> bool:
