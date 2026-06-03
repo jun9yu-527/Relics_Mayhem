@@ -32,6 +32,8 @@ extends Control
 # 효과음 볼륨 설정
 @export var sfx_volume_db: float = -10.0
 
+
+
 # 튜토리얼에 사용될 3장의 이미지 리소스 배열
 var tutorial_slides: Array[Texture] = [
 	preload("res://scenes/main_menu/Tutorial/Tutorial(1).png"),
@@ -55,6 +57,24 @@ var bgm_player: AudioStreamPlayer = null
 
 
 func _ready() -> void:
+
+	# 중복 연결 방지
+	var next_btn = $TutorialPanel/NextButton
+	if next_btn and not next_btn.is_connected("pressed", _on_next_button_pressed):
+		next_btn.pressed.connect(_on_next_button_pressed)
+
+	var close_btn = $TutorialPanel/CloseButton
+	if close_btn and not close_btn.is_connected("pressed", _on_close_button_pressed):
+		close_btn.pressed.connect(_on_close_button_pressed)
+
+	var info_next_btn2 = $InfoPanel/NextButton
+	if info_next_btn2 and not info_next_btn2.is_connected("pressed", _on_info_next_button_pressed):
+		info_next_btn2.pressed.connect(_on_info_next_button_pressed)
+
+	var info_close_btn2 = $InfoPanel/CloseButton
+	if info_close_btn2 and not info_close_btn2.is_connected("pressed", _on_info_close_button_pressed):
+		info_close_btn2.pressed.connect(_on_info_close_button_pressed)
+		
 	# 시작할 때 팝업창들을 화면에서 숨김
 	tutorial_panel.visible = false
 	info_panel.visible = false
