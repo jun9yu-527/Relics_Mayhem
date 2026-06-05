@@ -275,5 +275,6 @@ Relics_Mayhem/
 
 - **사운드**
   - 효과음 (버튼음, 머지음, 전환음, 미믹 / 시계 / 게임오버 등): [効果音ラボ](https://soundeffect-lab.info/sound/anime/)
+  - Ready/Go: VoiceVox로 직접 제작
   - 메인 메뉴 BGM: [DOVA-SYNDROME](https://dova-s.jp/bgm/detail/22993)
   - 게임 BGM: [DOVA-SYNDROME](https://dova-s.jp/bgm/detail/22216)
