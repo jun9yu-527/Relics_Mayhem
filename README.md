@@ -274,6 +274,6 @@ Relics_Mayhem/
 - **폰트**: Paperlogy, Keris, ONE Mobile POP
 
 - **사운드**
-  - 효과음 (버튼음, 머지음, 전환음, 미믹 / 시계 / 게임오버 등): [효과음 라보](https://soundeffect-lab.info/sound/anime/)
+  - 효과음 (버튼음, 머지음, 전환음, 미믹 / 시계 / 게임오버 등): [効果音ラボ](https://soundeffect-lab.info/sound/anime/)
   - 메인 메뉴 BGM: [DOVA-SYNDROME](https://dova-s.jp/bgm/detail/22993)
   - 게임 BGM: [DOVA-SYNDROME](https://dova-s.jp/bgm/detail/22216)
