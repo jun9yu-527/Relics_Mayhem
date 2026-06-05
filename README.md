@@ -265,6 +265,15 @@ Relics_Mayhem/
 
 ## 리소스
 
-- **이미지**: 유물, 아이템, 버튼, 튜토리얼, 정보창, 배경, 게임오버 화면
-- **폰트**: Paperlogy, Keris, ONE Mobile POP 계열
-- **사운드**: 메인 메뉴 BGM, 게임 BGM, 전환음, 버튼음, 머지음, 미믹 / 시계 / 게임오버 효과음
+- **이미지**
+  - 유물, 시계, 배경, 게임오버 화면: Gemini AI로 생성
+  - 계명대학교 로고: [계명대학교](https://www.kmu.ac.kr/)
+  - 버튼 및 UI: Adobe Illustrator / Photoshop으로 직접 제작
+  - 튜토리얼, 정보창 이미지 포함
+
+- **폰트**: Paperlogy, Keris, ONE Mobile POP
+
+- **사운드**
+  - 효과음 (버튼음, 머지음, 전환음, 미믹 / 시계 / 게임오버 등): [효과음 라보](https://soundeffect-lab.info/sound/anime/)
+  - 메인 메뉴 BGM: [DOVA-SYNDROME](https://dova-s.jp/bgm/detail/22993)
+  - 게임 BGM: [DOVA-SYNDROME](https://dova-s.jp/bgm/detail/22216)
