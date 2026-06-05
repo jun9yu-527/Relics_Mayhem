@@ -266,7 +266,7 @@ Relics_Mayhem/
 ## 리소스
 
 - **이미지**
-  - 유물, 시계, 배경, 게임오버 화면: Gemini AI로 생성
+  - 유물, 아이템, 배경: Gemini AI로 생성
   - 계명대학교 로고: [계명대학교](https://www.kmu.ac.kr/)
   - 버튼 및 UI: Adobe Illustrator / Photoshop으로 직접 제작
   - 튜토리얼, 정보창 이미지 포함
