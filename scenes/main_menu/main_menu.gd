@@ -54,6 +54,8 @@ var current_tutorial_index: int = 0
 var current_info_index: int = 0
 # 배경음악을 재생하고 제어할 오디오 플레이어 변수
 var bgm_player: AudioStreamPlayer = null
+# 타이틀 부유 tween 저장 (멈추고 재시작하기 위해)
+var title_float_tween: Tween = null
 
 
 func _ready() -> void:
@@ -111,10 +113,22 @@ func _play_background_music() -> void:
 func _on_settings_button_pressed() -> void:
 	_play_sound(menu_click_sound)
 	$SettingsButton.visible = false
+	_pause_title_float()
 	TransitionLayer.open_settings()
 
 func show_settings_button() -> void:
 	$SettingsButton.visible = true
+	_resume_title_float()
+
+# 타이틀 부유 멈추기
+func _pause_title_float() -> void:
+	if is_instance_valid(title_float_tween):
+		title_float_tween.pause()
+
+# 타이틀 부유 재시작
+func _resume_title_float() -> void:
+	if is_instance_valid(title_float_tween):
+		title_float_tween.play()
 
 # 타이틀 로고의 등장 애니메이션을 처리하는 함수
 func start_combined_title_animation() -> void:
@@ -137,10 +151,10 @@ func _run_infinite_floating(base_y: float) -> void:
 	if not title_img:
 		return
 
-	var loop_tween = create_tween().set_loops()
-	loop_tween.tween_property(title_img, "position:y", base_y + 10.0, 1.2)\
+	title_float_tween = create_tween().set_loops()
+	title_float_tween.tween_property(title_img, "position:y", base_y + 10.0, 1.2)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	loop_tween.tween_property(title_img, "position:y", base_y, 1.2)\
+	title_float_tween.tween_property(title_img, "position:y", base_y, 1.2)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
@@ -154,6 +168,8 @@ func _on_start_button_pressed() -> void:
 
 func _on_tutorial_button_pressed() -> void:
 	_play_sound(menu_click_sound)
+	$SettingsButton.visible = false
+	_pause_title_float()
 	current_tutorial_index = 0
 	show_tutorial_slide()
 	if next_page_btn:
@@ -163,6 +179,8 @@ func _on_tutorial_button_pressed() -> void:
 
 func _on_information_button_pressed() -> void:
 	_play_sound(menu_click_sound)
+	$SettingsButton.visible = false
+	_pause_title_float()
 	current_info_index = 0
 	show_info_slide()
 	if info_next_btn:
@@ -188,6 +206,8 @@ func _on_next_button_pressed() -> void:
 	_play_sound(sub_click_sound)
 	current_tutorial_index += 1
 	if current_tutorial_index >= tutorial_slides.size():
+		$SettingsButton.visible = true
+		_resume_title_float()
 		close_popup_animation(tutorial_panel)
 		return
 
@@ -210,6 +230,8 @@ func _on_close_button_pressed() -> void:
 	_play_sound(sub_click_sound)
 	if next_page_btn:
 		next_page_btn.visible = false
+	$SettingsButton.visible = true
+	_resume_title_float()
 	close_popup_animation(tutorial_panel)
 
 
@@ -218,6 +240,8 @@ func _on_info_close_button_pressed() -> void:
 	_play_sound(sub_click_sound)
 	if info_next_btn:
 		info_next_btn.visible = false
+	$SettingsButton.visible = true
+	_resume_title_float()
 	close_popup_animation(info_panel)
 
 
