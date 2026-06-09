@@ -84,8 +84,11 @@ func _input(event: InputEvent) -> void:
 			if pause_panel:
 				pause_panel.visible = true
 		else:
-			# 이미 일시정지 상태였다면 게임 재개 함수를 호출하여 원래대로 돌림
-			_on_resume_button_pressed()
+			# ESC로 재개할 때는 pause_sound 재생 후 재개
+			_play_ui_audio(pause_sound)
+			get_tree().paused = false
+			if pause_panel:
+				pause_panel.visible = false
 
 # 매 프레임마다 UI 상태를 갱신하는 함수
 func _process(_delta: float) -> void:
