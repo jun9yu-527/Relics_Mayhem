@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d035hdujwvqkq"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rx5nc"]
-load_path = "res://.godot/imported/MainBackground.png-121def15a7174f1b588646c0425826f4.ctex"
+[ext_resource type="Texture2D" uid="uid://caovoxa55uywy" path="res://scenes/background/MainBackground.jpg" id="1_iheb5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skwoc"]
 size = Vector2(40, 616)
@@ -17,7 +16,7 @@ size = Vector2(504, 44)
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2104380285]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = SubResource("CompressedTexture2D_rx5nc")
+texture = ExtResource("1_iheb5")
 
 [node name="WallLeft" type="CollisionShape2D" parent="." unique_id=1336678164]
 position = Vector2(364, 308)
