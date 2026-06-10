@@ -325,3 +325,21 @@ func fade_to_menu(target_scene: String) -> void:
 	fade_out.tween_property(fade_rect, "color:a", 0.0, 0.5)\
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	await fade_out.finished
+
+
+# 게임 다시 시작 시 페이드 인/아웃 전환
+func fade_restart() -> void:
+	# 페이드 인 (검정으로 서서히 어두워짐)
+	var fade_in = create_tween()
+	fade_in.tween_property(fade_rect, "color:a", 1.0, 0.5)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	await fade_in.finished
+
+	# 씬 리로드
+	get_tree().reload_current_scene()
+
+	# 페이드 아웃 (밝아지며 게임 화면 드러남)
+	var fade_out = create_tween()
+	fade_out.tween_property(fade_rect, "color:a", 0.0, 0.5)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	await fade_out.finished

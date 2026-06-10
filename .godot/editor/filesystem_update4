@@ -1,0 +1,4 @@
+res://scenes/background/background.tscn
+res://scenes/transition/Circle.gdshader
+res://scenes/main/hud.gd
+res://scenes/transition/transition_layer.gd
